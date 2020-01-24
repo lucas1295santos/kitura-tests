@@ -9,11 +9,8 @@ let package = Package(
         .package(url: "https://github.com/IBM-Swift/Kitura", from: "2.9.1")
     ],
     targets: [
-        .target(
-            name: "kitura-tests",
-            dependencies: []),
-        .testTarget(
-            name: "kitura-testsTests",
-            dependencies: ["kitura-tests"]),
-    ]
+        .target(name: "kitura-tests", dependencies: [ .target(name: "Application"), "Kitura"]),
+        .target(name: "Application", dependencies: [ "Kitura" ]),
+
+        .testTarget(name: "ApplicationTests" , dependencies: [.target(name: "Application"), "Kitura" ])
 )
