@@ -13,4 +13,5 @@ let package = Package(
         .target(name: "Application", dependencies: [ "Kitura" ]),
 
         .testTarget(name: "ApplicationTests" , dependencies: [.target(name: "Application"), "Kitura" ])
+    ]
 )
